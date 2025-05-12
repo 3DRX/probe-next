@@ -1,7 +1,4 @@
-export async function mockDataFetch(): Promise<string> {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve("example-data");
-    }, 3000);
-  });
+export async function mockDataFetch() {
+  await new Promise((r) => setTimeout(r, 2000));
+  return `example-data-after-${2000}ms`;
 }
