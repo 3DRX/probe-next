@@ -10,13 +10,8 @@ export function ClientComponent() {
     queryFn: mockDataFetch,
   });
 
-  return (
-    <>
-      {exampleQuery.data ? (
-        <a>{exampleQuery.data}</a>
-      ) : (
-        <Skeleton className="h-16 w-64" />
-      )}
-    </>
-  );
+  if (!exampleQuery.data) {
+    return <Skeleton className="h-16 w-64" />;
+  }
+  return <p>{exampleQuery.data}</p>;
 }
